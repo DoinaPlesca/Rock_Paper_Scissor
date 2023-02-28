@@ -1,0 +1,17 @@
+.background-image{
+    -fx-background-image: url("Lemon.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-attachment : fixed;
+    -fx-background-position: center;
+    -fx-background-size: cover;
+
+}
+.playBtn{
+    -fx-background-radius: 50px;
+    -fx-cursor: HAND;
+}
+
+
+
+
+
