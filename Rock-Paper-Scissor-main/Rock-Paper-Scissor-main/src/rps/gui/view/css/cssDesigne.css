@@ -1,15 +1,53 @@
 .background-image{
-    -fx-background-image: url("Lemon.png");
+    -fx-background-image: url("garden2.jpg");
     -fx-background-repeat: no-repeat;
     -fx-background-attachment : fixed;
     -fx-background-position: center;
     -fx-background-size: cover;
 
 }
-.playBtn{
+.buttons{
+    -fx-background-color: #C8A2C8;
     -fx-background-radius: 50px;
     -fx-cursor: HAND;
 }
+
+.labels {
+    -fx-text-fill: black;
+    -fx-font-size: 30;
+    -fx-font-weight: bold;
+}
+.labelsPlayers {
+    -fx-text-fill: blue;
+    -fx-font-size: 40;
+    -fx-font-weight: bold;
+}
+.label.result {
+    -fx-text-fill: blue;
+    -fx-font-size: 50;
+}
+
+
+
+
+@keyframes handShake {
+    0%,100% { transform: rotate(10deg); }
+    50% { transform: rotate(-10deg); }
+}
+
+@keyframes handShake2 {
+    0%,100% { transform: rotateY(180deg) rotate(10deg); }
+    50% { transform: rotateY(180deg) rotate(-10deg); }
+}
+@keyframes changeOrder {
+    from { z-index: 9;}
+    to { z-index: 1; }
+}
+.labelHand {
+    animation-name: handShake;
+    animation-duration: 4s;
+}
+
 
 
 

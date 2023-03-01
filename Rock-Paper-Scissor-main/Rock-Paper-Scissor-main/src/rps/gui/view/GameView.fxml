@@ -9,31 +9,31 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1200.0" styleClass="background-image" stylesheets="@css/cssDesigne.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rps.gui.controller.GameViewController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" styleClass="background-image" stylesheets="@css/cssDesigne.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rps.gui.controller.GameViewController">
    <top>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0" style="-fx-background-color: rgba(0,0,0,0.5);" BorderPane.alignment="CENTER">
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="43.0" prefWidth="162.0" text="Player" textFill="WHITE">
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="58.0" prefWidth="318.0" styleClass="labelsPlayers" stylesheets="@css/cssDesigne.css" text="Player" textFill="WHITE">
                <font>
                   <Font name="Arial Black" size="29.0" />
                </font>
             </Label>
-            <Label fx:id="lblPlayerScore" alignment="CENTER" contentDisplay="CENTER" prefHeight="43.0" prefWidth="63.0" text="0" textFill="WHITE">
+            <Label fx:id="lblPlayerScore" alignment="CENTER" contentDisplay="CENTER" prefHeight="43.0" prefWidth="135.0" styleClass="labelsPlayers" stylesheets="@css/cssDesigne.css" text="0" textFill="WHITE">
                <font>
                   <Font name="Arial Black" size="29.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="44.0" prefWidth="43.0" text="-" textFill="WHITE">
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="44.0" prefWidth="151.0" text="-" textFill="WHITE">
                <font>
                   <Font name="Arial Black" size="28.0" />
                </font>
             </Label>
-            <Label fx:id="lblComputerScore" alignment="CENTER" contentDisplay="CENTER" prefHeight="43.0" prefWidth="63.0" text="0" textFill="WHITE">
+            <Label fx:id="lblComputerScore" alignment="CENTER" contentDisplay="CENTER" prefHeight="43.0" prefWidth="122.0" styleClass="labelsPlayers" stylesheets="@css/cssDesigne.css" text="0" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="Arial Black" size="29.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="43.0" prefWidth="181.0" text="Computer" textFill="WHITE">
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="73.0" prefWidth="347.0" styleClass="labelsPlayers" stylesheets="@css/cssDesigne.css" text="Computer" textFill="WHITE">
                <font>
                   <Font name="Arial Black" size="29.0" />
                </font>
@@ -42,11 +42,11 @@
       </HBox>
    </top>
    <bottom>
-      <HBox alignment="CENTER" prefHeight="125.0" prefWidth="679.0" spacing="75.0" style="-fx-background-color: rgba(0,0,0,0.5);" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER" prefHeight="125.0" prefWidth="679.0" spacing="75.0" BorderPane.alignment="CENTER">
          <children>
             <VBox alignment="CENTER" prefHeight="100.0" prefWidth="127.0">
                <children>
-                  <Button fx:id="btnStone" alignment="CENTER" contentDisplay="CENTER" layoutX="20.0" layoutY="20.0" mnemonicParsing="false" onAction="#playerTurn" prefHeight="102.0" prefWidth="94.0" stylesheets="@css/cssDesigne.css">
+                  <Button fx:id="btnStone" alignment="CENTER" contentDisplay="CENTER" layoutX="20.0" layoutY="20.0" mnemonicParsing="false" onAction="#playerTurn" prefHeight="102.0" prefWidth="94.0" styleClass="buttons" stylesheets="@css/cssDesigne.css">
                      <graphic>
                         <ImageView fitHeight="77.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -55,7 +55,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Label text="Stone" textFill="WHITE">
+                  <Label styleClass="labels" stylesheets="@css/cssDesigne.css" text="Stone" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="17.0" />
                      </font>
@@ -64,16 +64,16 @@
             </VBox>
             <VBox alignment="CENTER" prefHeight="100.0" prefWidth="127.0">
                <children>
-                  <Button fx:id="btnPaper" alignment="CENTER" contentDisplay="CENTER" layoutX="20.0" layoutY="20.0" mnemonicParsing="false" onAction="#playerTurn" prefHeight="102.0" prefWidth="94.0">
+                  <Button fx:id="btnPaper" alignment="CENTER" contentDisplay="CENTER" layoutX="20.0" layoutY="20.0" mnemonicParsing="false" onAction="#playerTurn" prefHeight="102.0" prefWidth="94.0" styleClass="buttons" stylesheets="@css/cssDesigne.css">
                      <graphic>
-                        <ImageView fitHeight="86.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="86.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" styleClass="paperBtn">
                            <image>
-                              <Image url="@icon%20game/paper.png" />
+                              <Image url="@icon%20game/PAPER.png" />
                            </image>
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Label text="Paper" textFill="WHITE">
+                  <Label styleClass="labels" stylesheets="@css/cssDesigne.css" text="Paper" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="17.0" />
                      </font>
@@ -82,16 +82,16 @@
             </VBox>
             <VBox alignment="CENTER" prefHeight="100.0" prefWidth="127.0">
                <children>
-                  <Button fx:id="btnScissors" alignment="CENTER" contentDisplay="CENTER" layoutX="20.0" layoutY="20.0" mnemonicParsing="false" onAction="#playerTurn" prefHeight="102.0" prefWidth="94.0">
+                  <Button fx:id="btnScissors" alignment="CENTER" contentDisplay="CENTER" layoutX="20.0" layoutY="20.0" mnemonicParsing="false" onAction="#playerTurn" prefHeight="102.0" prefWidth="94.0" styleClass="buttons" stylesheets="@css/cssDesigne.css">
                      <graphic>
-                        <ImageView fitHeight="86.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="86.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" styleClass="scissorBtn">
                            <image>
-                              <Image url="@icon%20game/Scissors.png" />
+                              <Image url="@icon%20game/SCISSORS.png" />
                            </image>
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Label text="Scissors" textFill="WHITE">
+                  <Label styleClass="labels" stylesheets="@css/cssDesigne.css" text="Scissors" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="17.0" />
                      </font>
@@ -102,15 +102,26 @@
       </HBox>
    </bottom>
    <center>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="hand" stylesheets="@css/cssDesigne.css" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fx:id="imageViewPlayer" fitHeight="253.0" fitWidth="166.0" pickOnBounds="true" preserveRatio="true" />
-            <Label fx:id="lblResult" alignment="CENTER" contentDisplay="CENTER" prefHeight="37.0" prefWidth="122.0">
+            <Label styleClass="labelHand" stylesheets="@css/cssDesigne.css">
+               <graphic>
+                  <ImageView fx:id="imageViewPlayer" fitHeight="221.0" fitWidth="166.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icon%20game/ROCK.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+            <Label fx:id="lblResult" alignment="CENTER" contentDisplay="CENTER" prefHeight="73.0" prefWidth="234.0" styleClass="result" stylesheets="@css/cssDesigne.css">
                <font>
                   <Font name="System Bold" size="22.0" />
                </font>
             </Label>
-            <ImageView fx:id="imageViewComputer" fitHeight="245.0" fitWidth="166.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imageViewComputer" fitHeight="245.0" fitWidth="166.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icon%20game/ROCK%20-%20Copy.png" />
+               </image></ImageView>
          </children>
       </HBox>
    </center>
