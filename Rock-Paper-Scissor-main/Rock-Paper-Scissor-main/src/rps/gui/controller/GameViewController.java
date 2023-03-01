@@ -1,15 +1,18 @@
 package rps.gui.controller;
 
 // Java imports
+import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.BorderPane;
+import javafx.util.Duration;
 
-import java.awt.event.ActionEvent;
 import java.net.URL;
+import java.util.Random;
 import java.util.ResourceBundle;
 
 /**
@@ -22,17 +25,22 @@ public class GameViewController implements Initializable {
     private static final String STONE = "stone";
     private static final String SCISSORS = " scissors";
     @FXML
+    private BorderPane borderPane;
+    @FXML
     private ImageView imageViewPlayer,
-              imageViewComputer;
+            imageViewComputer;
     @FXML
     private Label lblPlayerScore,
-                  lblComputerScore,
-                  lblResult;
+            lblComputerScore,
+            lblResult,
+            lblCompName;
+
     @FXML
     private Button btnStone,
-                   btnPaper,
-                   btnScissors;
+            btnPaper,
+            btnScissors;
     private Image image;
+    private Boolean gamaOver = false;
 
 
     /**
@@ -40,44 +48,77 @@ public class GameViewController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        animationPlayerHand();
+        animationComputerHand();
+        lblCompName.setText(playerName());
+
+    }
+
+    public void animationPlayerHand() {
+        TranslateTransition translate = new TranslateTransition();
+        translate.setNode(imageViewPlayer);
+        translate.setDuration(Duration.millis(1000));
+        translate.setCycleCount(TranslateTransition.INDEFINITE);
+        translate.setByX(20);
+        translate.setByY(-50);
+        translate.setAutoReverse(true);
+        translate.play();
+
+    }
+
+    public void animationComputerHand() {
+        TranslateTransition translate = new TranslateTransition();
+        translate.setNode(imageViewComputer);
+        translate.setDuration(Duration.millis(1000));
+        translate.setCycleCount(TranslateTransition.INDEFINITE);
+        translate.setByX(21);
+        translate.setByY(-50);
+        translate.setAutoReverse(true);
+        translate.play();
+    }
+    public String playerName (){
+        String [] names = new String[] {"Jack" , "William", "Alex", "Lucas"};
+        Random r = new Random();
+        int index = r.nextInt(names.length);
+        return names[index];
     }
 
 
     public void playerTurn(javafx.event.ActionEvent actionEvent) {
         String playerChoice = null;
         switch (((Button) actionEvent.getSource()).getId()) {
-            case "btnPaper" :
+            case "btnPaper":
                 image = new Image("rps/gui/view/icon game/PAPER.png");
                 playerChoice = PAPER;
                 break;
-            case "btnStone" :
+
+            case "btnStone":
                 image = new Image("rps/gui/view/icon game/ROCK.png");
                 playerChoice = STONE;
                 break;
 
-            case "btnScissors" :
+            case "btnScissors":
                 image = new Image("rps/gui/view/icon game/SCISSORS.png");
                 playerChoice = SCISSORS;
                 break;
         }
         imageViewPlayer.setImage(image);
-        winner(playerChoice,computerTurn());
+        winner(playerChoice, computerTurn());
     }
 
     public String computerTurn() {
         String computerChoice = null;
         int index = (int) (Math.random() * 3);
         switch (index) {
-            case 0 :
+            case 0:
                 image = new Image("rps/gui/view/icon game/ROCK.png");
                 computerChoice = STONE;
                 break;
-            case 1 :
+            case 1:
                 image = new Image("rps/gui/view/icon game/paper.png");
                 computerChoice = PAPER;
                 break;
-            case 2 :
+            case 2:
                 image = new Image("rps/gui/view/icon game/Scissors.png");
                 computerChoice = SCISSORS;
                 break;
@@ -89,12 +130,13 @@ public class GameViewController implements Initializable {
 
     public void playerWin() {
         lblResult.setText("You Win");
-        lblPlayerScore.setText(String.valueOf(Integer.parseInt(lblPlayerScore.getText()) + 1 ));
+        lblPlayerScore.setText(String.valueOf(Integer.parseInt(lblPlayerScore.getText()) + 1));
+
     }
 
     public void computerWin() {
         lblResult.setText("You Lose");
-        lblComputerScore.setText(String.valueOf(Integer.parseInt(lblComputerScore.getText())+ 1 ));
+        lblComputerScore.setText(String.valueOf(Integer.parseInt(lblComputerScore.getText()) + 1));
     }
 
     public void draw() {
@@ -106,7 +148,7 @@ public class GameViewController implements Initializable {
             draw();
             return;
         }
-        if(playerChoice.equals(STONE)) {
+        if (playerChoice.equals(STONE)) {
             if (computerChoice.equals(PAPER)) {
                 computerWin();
             } else if (computerChoice.equals(SCISSORS)) {
@@ -130,10 +172,7 @@ public class GameViewController implements Initializable {
         }
     }
 
-    public void endGame(){
-
+    public void endGame() {
     }
-
-
 }
 

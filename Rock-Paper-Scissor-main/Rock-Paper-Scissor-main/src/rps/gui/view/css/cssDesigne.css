@@ -11,6 +11,17 @@
     -fx-background-radius: 50px;
     -fx-cursor: HAND;
 }
+.buttons:hover {
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+    -fx-scale-z: 1.1;
+}
+.buttons:pressed{
+    -fx-effect: null;
+    -fx-scale-x: 1;
+    -fx-scale-y: 1;
+    -fx-scale-z: 1;
+}
 
 .labels {
     -fx-text-fill: black;
@@ -26,27 +37,17 @@
     -fx-text-fill: blue;
     -fx-font-size: 50;
 }
-
-
-
-
-@keyframes handShake {
-    0%,100% { transform: rotate(10deg); }
-    50% { transform: rotate(-10deg); }
+.labelPlayersScore {
+    -fx-text-fill: red;
+    -fx-font-size: 50;
+    -fx-font-weight: bold;
 }
 
-@keyframes handShake2 {
-    0%,100% { transform: rotateY(180deg) rotate(10deg); }
-    50% { transform: rotateY(180deg) rotate(-10deg); }
-}
-@keyframes changeOrder {
-    from { z-index: 9;}
-    to { z-index: 1; }
-}
-.labelHand {
-    animation-name: handShake;
-    animation-duration: 4s;
-}
+
+
+
+
+
 
 
 
