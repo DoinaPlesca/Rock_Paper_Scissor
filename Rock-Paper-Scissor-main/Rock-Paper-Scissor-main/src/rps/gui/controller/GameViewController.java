@@ -23,7 +23,7 @@ public class GameViewController implements Initializable {
 
     private static final String PAPER = "paper";
     private static final String STONE = "stone";
-    private static final String SCISSORS = " scissors";
+    private static final String SCISSORS = "scissors";
     @FXML
     private BorderPane borderPane;
     @FXML
@@ -48,34 +48,48 @@ public class GameViewController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        animationPlayerHand();
-        animationComputerHand();
         lblCompName.setText(playerName());
 
     }
 
-    public void animationPlayerHand() {
+    private void displayResults(String choice){
+        imageViewComputer.setImage(new Image("rps/gui/view/icon game/ROCK.png"));
+        imageViewPlayer.setImage(new Image("rps/gui/view/icon game/ROCK.png"));
+        animateHand(imageViewComputer);
+        animateHand(imageViewPlayer, choice);
+    }
+
+    private void animateHand(ImageView image) {
         TranslateTransition translate = new TranslateTransition();
-        translate.setNode(imageViewPlayer);
-        translate.setDuration(Duration.millis(1000));
-        translate.setCycleCount(TranslateTransition.INDEFINITE);
+        translate.setNode(image);
+        translate.setDuration(Duration.millis(100));
+        translate.setCycleCount(6);
+        translate.setByX(20);
+        translate.setByY(-50);
+        translate.setAutoReverse(true);
+        translate.play();
+    }
+    private void animateHand(ImageView image, String choice) {
+
+        TranslateTransition translate = new TranslateTransition();
+        translate.setNode(image);
+        translate.setDuration(Duration.millis(100));
+        translate.setCycleCount(6);
         translate.setByX(20);
         translate.setByY(-50);
         translate.setAutoReverse(true);
         translate.play();
 
+        translate.setOnFinished(e->{
+            if(choice.equalsIgnoreCase("paper"))
+                imageViewPlayer.setImage(new Image("rps/gui/view/icon game/PAPER.png"));
+            else if (choice.equalsIgnoreCase("scissors"))
+                imageViewPlayer.setImage(new Image("rps/gui/view/icon game/SCISSORS.png"));
+
+            winner(choice, computerTurn());
+        });
     }
 
-    public void animationComputerHand() {
-        TranslateTransition translate = new TranslateTransition();
-        translate.setNode(imageViewComputer);
-        translate.setDuration(Duration.millis(1000));
-        translate.setCycleCount(TranslateTransition.INDEFINITE);
-        translate.setByX(21);
-        translate.setByY(-50);
-        translate.setAutoReverse(true);
-        translate.play();
-    }
     public String playerName (){
         String [] names = new String[] {"Jack" , "William", "Alex", "Lucas"};
         Random r = new Random();
@@ -103,7 +117,8 @@ public class GameViewController implements Initializable {
                 break;
         }
         imageViewPlayer.setImage(image);
-        winner(playerChoice, computerTurn());
+        displayResults(playerChoice);
+
     }
 
     public String computerTurn() {
