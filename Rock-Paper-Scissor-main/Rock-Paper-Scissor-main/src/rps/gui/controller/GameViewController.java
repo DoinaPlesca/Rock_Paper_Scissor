@@ -3,14 +3,21 @@ package rps.gui.controller;
 // Java imports
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import javafx.util.Duration;
+import rps.gui.JavaFXApp;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.Random;
 import java.util.ResourceBundle;
@@ -24,6 +31,7 @@ public class GameViewController implements Initializable {
     private static final String PAPER = "paper";
     private static final String STONE = "stone";
     private static final String SCISSORS = " scissors";
+    private Button button;
     @FXML
     private BorderPane borderPane;
     @FXML
@@ -40,16 +48,12 @@ public class GameViewController implements Initializable {
             btnPaper,
             btnScissors;
     private Image image;
-    private Boolean gamaOver = false;
-
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        animationPlayerHand();
-        animationComputerHand();
         lblCompName.setText(playerName());
 
     }
@@ -88,17 +92,19 @@ public class GameViewController implements Initializable {
         String playerChoice = null;
         switch (((Button) actionEvent.getSource()).getId()) {
             case "btnPaper":
-                image = new Image("rps/gui/view/icon game/PAPER.png");
+                image = new Image("rps/gui/view/icon game/paper.png");
                 playerChoice = PAPER;
+
+
                 break;
 
             case "btnStone":
-                image = new Image("rps/gui/view/icon game/ROCK.png");
+                image = new Image("rps/gui/view/icon game/left.png");
                 playerChoice = STONE;
                 break;
 
             case "btnScissors":
-                image = new Image("rps/gui/view/icon game/SCISSORS.png");
+                image = new Image("rps/gui/view/icon game/scissors.png");
                 playerChoice = SCISSORS;
                 break;
         }
@@ -111,7 +117,7 @@ public class GameViewController implements Initializable {
         int index = (int) (Math.random() * 3);
         switch (index) {
             case 0:
-                image = new Image("rps/gui/view/icon game/ROCK.png");
+                image = new Image("rps/gui/view/icon game/right.png");
                 computerChoice = STONE;
                 break;
             case 1:
@@ -119,7 +125,7 @@ public class GameViewController implements Initializable {
                 computerChoice = PAPER;
                 break;
             case 2:
-                image = new Image("rps/gui/view/icon game/Scissors.png");
+                image = new Image("rps/gui/view/icon game/scissors.png");
                 computerChoice = SCISSORS;
                 break;
         }

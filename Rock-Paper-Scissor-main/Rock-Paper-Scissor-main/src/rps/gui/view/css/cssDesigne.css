@@ -1,5 +1,5 @@
 .background-image{
-    -fx-background-image: url("garden2.jpg");
+    -fx-background-image: url("red-5828571_1280.jpg");
     -fx-background-repeat: no-repeat;
     -fx-background-attachment : fixed;
     -fx-background-position: center;
@@ -24,24 +24,48 @@
 }
 
 .labels {
-    -fx-text-fill: black;
+    -fx-text-fill: white;
     -fx-font-size: 30;
     -fx-font-weight: bold;
+    -fx-font-style: italic;
 }
 .labelsPlayers {
-    -fx-text-fill: blue;
-    -fx-font-size: 40;
+    -fx-text-fill: white;
+    -fx-font-size: 50;
     -fx-font-weight: bold;
+    -fx-font-style: italic;
+
 }
 .label.result {
-    -fx-text-fill: blue;
-    -fx-font-size: 50;
-}
-.labelPlayersScore {
-    -fx-text-fill: red;
+    -fx-text-fill: white;
     -fx-font-size: 50;
     -fx-font-weight: bold;
 }
+.labelPlayersScore {
+    -fx-text-fill: black;
+    -fx-font-size: 50;
+    -fx-font-weight: bold;
+}
+.background-imageWelcome{
+    -fx-background-color: linear-gradient( #ff69b4,   #ffd700);
+
+    -fx-background-repeat: no-repeat;
+    -fx-background-attachment : fixed;
+    -fx-background-position: center;
+    -fx-background-size: cover;
+
+}
+.labelWelcomeText {
+    -fx-text-fill:#2a1274;
+    -fx-font-size:20;
+    -fx-font-weight: bold;
+    -fx-text-alignment: center;
+}
+.buttonStartGame {
+    -fx-background-color: linear-gradient( red,coral);
+}
+
+
 
 
 
