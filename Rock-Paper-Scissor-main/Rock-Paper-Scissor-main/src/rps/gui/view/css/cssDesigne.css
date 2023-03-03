@@ -42,6 +42,24 @@
     -fx-font-size: 50;
     -fx-font-weight: bold;
 }
+.background-imageWelcome{
+    -fx-background-color: linear-gradient( #ff69b4,   #ffd700);
+
+    -fx-background-repeat: no-repeat;
+    -fx-background-attachment : fixed;
+    -fx-background-position: center;
+    -fx-background-size: cover;
+
+}
+.labelWelcomeText {
+    -fx-text-fill:#2a1274;
+    -fx-font-size:20;
+    -fx-font-weight: bold;
+    -fx-text-alignment: center;
+}
+.buttonStartGame {
+    -fx-background-color: linear-gradient( red,coral);
+}
 
 
 
