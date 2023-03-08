@@ -29,12 +29,13 @@
     -fx-font-weight: bold;
 }
 .labelsPlayers {
-    -fx-text-fill: blue;
-    -fx-font-size: 40;
+    -fx-text-fill: black;
+    -fx-font-size: 50;
     -fx-font-weight: bold;
+    -fx-font-style: italic;
 }
 .label.result {
-    -fx-text-fill: blue;
+    -fx-text-fill:red;
     -fx-font-size: 50;
 }
 .labelPlayersScore {
